@@ -3,7 +3,7 @@ package uk.co.iamsimonsmale.business.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import uk.co.iamsimonsmale.facades.myStrings;
+import uk.co.iamsimonsmale.facades.DynamicStringMakerFacade;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class proto {
 
   @Autowired
-  private myStrings stringFacade;
+  private DynamicStringMakerFacade stringFacade;
 
   @GetMapping(value = "/facade")
   public String getFacadeString() {

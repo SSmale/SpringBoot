@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import uk.co.iamsimonsmale.facades.DynmicString.DynamicStringMaker;
 
 @Service
-public class myStrings {
+public class DynamicStringMakerFacade {
 
   @Autowired
   private DynamicStringMaker simonBean;
