@@ -1,0 +1,8 @@
+uk.co.iamsimonsmale.dynamicStrings:
+  lastName: Smale
+  - 
+    beanName: simonBean
+    firstName: Simon
+  - 
+    beanName: griffinBean
+    firstName: Griffin

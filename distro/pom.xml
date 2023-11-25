@@ -8,14 +8,19 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>uk.co.iamsimonsmale</groupId>
-	<artifactId>business</artifactId>
+	<artifactId>distro</artifactId>
 	<version>${package.version}</version>
-	<name>business</name>
+	<name>distro</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+	<dependency>
+		<groupId>uk.co.iamsimonsmale</groupId>
+		<artifactId>business</artifactId>
+		<version>${package.version}</version>
+	</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
