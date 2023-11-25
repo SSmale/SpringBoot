@@ -9,8 +9,9 @@ import uk.co.iamsimonsmale.facades.DynmicString.DynamicStringMaker;
 
 @Service
 public class myStrings {
-  @Autowired
-  private Map<String, DynamicStringMaker> stringBeans;
+  // @Autowired
+  // private Map<String, DynamicStringMaker> stringBeans;
+
   @Autowired
   private DynamicStringMaker simonBean;
 
