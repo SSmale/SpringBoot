@@ -9,14 +9,15 @@ import uk.co.iamsimonsmale.facades.DynmicString.DynamicStringMaker;
 
 @Service
 public class myStrings {
-  // @Autowired
-  // private Map<String, DynamicStringMaker> stringBeans;
 
   @Autowired
   private DynamicStringMaker simonBean;
 
+  @Autowired
+  private DynamicStringMaker griffinBean;
+
   public String fullName() {
-    return simonBean.fullname();
+    return simonBean.fullname() + griffinBean.fullname();
   }
 
 }
