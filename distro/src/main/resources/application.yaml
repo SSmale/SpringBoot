@@ -6,3 +6,6 @@ spring:
     user:
       name: user
       password: user
+  devtools:
+    restart:
+      enabled: false
