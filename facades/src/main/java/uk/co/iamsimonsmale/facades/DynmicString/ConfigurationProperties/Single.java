@@ -1,12 +1,9 @@
 package uk.co.iamsimonsmale.facades.DynmicString.ConfigurationProperties;
 
-import java.util.List;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties
-public record multi(
-        String lastName,
-        List<single> configs) {
-
+@ConfigurationProperties(prefix = "uk.co.iamsimonsmale.configs")
+public record Single(
+        String beanName,
+        String firstName) {
 }

@@ -1,8 +1,7 @@
-uk.co.iamsimonsmale.dynamicStrings:
+uk.co.iamsimonsmale.dynamic-strings:
   lastName: Smale
-  - 
-    beanName: simonBean
-    firstName: Simon
-  - 
-    beanName: griffinBean
-    firstName: Griffin
+  configs:
+    - beanName: simonBean
+      firstName: Simon
+    - beanName: griffinBean
+      firstName: Griffin
