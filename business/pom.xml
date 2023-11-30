@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>uk.co.iamsimonsmale</groupId>
 	<artifactId>business</artifactId>
-	<version>${package.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>business</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>uk.co.iamsimonsmale</groupId>
 			<artifactId>facades</artifactId>
-			<version>${package.version}</version>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
