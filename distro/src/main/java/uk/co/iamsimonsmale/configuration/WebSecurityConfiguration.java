@@ -1,4 +1,4 @@
-package uk.co.iamsimonsmale.Configuration;
+package uk.co.iamsimonsmale.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,9 +14,7 @@ public class WebSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((authz) -> authz
-                        .anyRequest().permitAll())
+        http.authorizeHttpRequests((authz) -> authz.anyRequest().permitAll())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
     }

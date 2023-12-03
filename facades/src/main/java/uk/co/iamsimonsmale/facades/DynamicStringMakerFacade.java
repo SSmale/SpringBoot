@@ -4,8 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import uk.co.iamsimonsmale.facades.DynmicString.DynamicStringMaker;
+import uk.co.iamsimonsmale.facades.dynmicstring.DynamicStringMaker;
 
 @Service
 public class DynamicStringMakerFacade {

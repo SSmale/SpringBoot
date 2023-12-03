@@ -1,4 +1,4 @@
-package uk.co.iamsimonsmale.facades.DynmicString;
+package uk.co.iamsimonsmale.facades.dynmicstring;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
