@@ -1,4 +1,7 @@
-stages:          
+image: maven:3-openjdk-17
+
+stages: 
+  - lint  
   - build
   - test
 
@@ -6,8 +9,13 @@ build-job:
   stage: build
   script:
     - echo "Compiling the code..."
-    - mvn clean install
-    - echo "Compile complete."
+    - mvn package
+    - echo "Compile complete  
+  artifacts:
+    when: on_success
+    expire_in: "30 days"
+    paths:
+      - "distro/target/distro-*.jar"
 
 unit-test-job:  
   stage: test   
@@ -17,8 +25,8 @@ unit-test-job:
     - echo "Unit tests complete."
 
 lint-test-job:  
-  stage: test   
+  stage: lint   
   script:
     - echo "Linting code..."
-    - mvn validate
+    - mvn clean install validate
     - echo "Linter finished"
