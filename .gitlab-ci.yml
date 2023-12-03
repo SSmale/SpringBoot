@@ -10,8 +10,9 @@ build-job:
   script:
     - echo "Compiling the code..."
     - mvn package
-    - echo "Compile complete  
+    - echo "Compile complete"
   artifacts:
+    name: "Learning"
     when: on_success
     expire_in: "30 days"
     paths:
