@@ -16,7 +16,6 @@
 	<description>Demo project for Spring Boot</description>
 
 	<modules>
-		<module>build-tools</module>
 		<module>distro</module>
 		<module>facades</module>
 		<module>business</module>
@@ -24,44 +23,10 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<checkstyle.latest.version>10.12.5</checkstyle.latest.version>
-		<checkstyle.maven.version>3.3.1</checkstyle.maven.version>
 	</properties>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-checkstyle-plugin</artifactId>
-					<version>${checkstyle.maven.version}</version>
-					<configuration>
-							<configLocation>learning/checkstyle.xml</configLocation>
-							<consoleOutput>true</consoleOutput>
-							<failsOnError>true</failsOnError>
-							<linkXRef>false</linkXRef>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>com.puppycrawl.tools</groupId>
-							<artifactId>checkstyle</artifactId>
-							<version>${checkstyle.latest.version}</version>
-						</dependency>
-						<dependency>
-							<groupId>uk.co.iamsimonsmale</groupId>
-							<artifactId>build-tools</artifactId>
-							<version>0.0.1-SNAPSHOT</version>
-						</dependency>
-					</dependencies>
-					<executions>
-							<execution>
-									<id>validate</id>
-									<phase>validate</phase>
-									<goals>
-											<goal>check</goal>
-									</goals>
-							</execution>
-					</executions>
-			</plugin>
 			<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
@@ -71,18 +36,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${checkstyle.maven.version}</version>
-        <configuration>
-          <configLocation>learning/checkstyle.xml</configLocation>
-        </configuration>
-      </plugin>
-    </plugins>
-  </reporting>
 
 </project>
