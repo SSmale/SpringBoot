@@ -8,8 +8,8 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.boot.context.properties.bind.Bindable;
 import org.springframework.boot.context.properties.bind.Binder;
 import org.springframework.core.env.Environment;
-import uk.co.iamsimonsmale.facades.dynmicstring.DynamicStringMaker;
 import uk.co.iamsimonsmale.facades.dynmicstring.ConfigurationProperties.Multi;
+import uk.co.iamsimonsmale.facades.dynmicstring.DynamicStringMaker;
 
 public class DynamicStringMakerBeanDefinitionRegistrar
     implements BeanDefinitionRegistryPostProcessor {
@@ -18,20 +18,25 @@ public class DynamicStringMakerBeanDefinitionRegistrar
   private final Multi multi;
 
   public DynamicStringMakerBeanDefinitionRegistrar(Environment environment) {
-    multi = Binder.get(environment).bind(PROPERTIES_PREFIX, Bindable.of(Multi.class))
-        .orElseThrow(IllegalStateException::new);
+    multi =
+        Binder.get(environment)
+            .bind(PROPERTIES_PREFIX, Bindable.of(Multi.class))
+            .orElseThrow(IllegalStateException::new);
   }
 
   @Override
   public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
       throws BeansException {
-    multi.configs().forEach(config -> {
-      GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
-      beanDefinition.setBeanClass(DynamicStringMaker.class);
-      beanDefinition
-          .setInstanceSupplier(() -> new DynamicStringMaker(multi.lastName(), config.firstName()));
-      registry.registerBeanDefinition(config.beanName(), beanDefinition);
-    });
+    multi
+        .configs()
+        .forEach(
+            config -> {
+              GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
+              beanDefinition.setBeanClass(DynamicStringMaker.class);
+              beanDefinition.setInstanceSupplier(
+                  () -> new DynamicStringMaker(multi.lastName(), config.firstName()));
+              registry.registerBeanDefinition(config.beanName(), beanDefinition);
+            });
   }
 
   @Override
