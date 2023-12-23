@@ -81,6 +81,7 @@
 				</configuration>
 				<executions>
 					<execution>
+						<phase>package</phase>
 						<goals>
 							<goal>build-image-no-fork</goal>
 						</goals>
