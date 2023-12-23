@@ -1,16 +1,26 @@
 image: maven:3-openjdk-17
 
+variables:
+  # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: "/certs"
+
 stages: 
   - lint  
-  - build
   - test
+  - build
 
-build-job:      
+create-and-publish-docker-image:      
   stage: build
+  services:
+    - name: docker:20.10.16-dind
+      alias: docker
   script:
-    - echo "Compiling the code..."
-    - mvn package
-    - echo "Compile complete"
+    - echo "Loggin into Registry..."
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - echo "Compiling the code, building docker image and publishing..."
+    - mvn package -Dspring-boot.build-image.publish=$publishDockerImage
+    - echo "Maven Package complete"
   artifacts:
     name: "Learning"
     when: on_success

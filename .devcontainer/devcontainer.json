@@ -8,7 +8,13 @@
 		"ghcr.io/devcontainers/features/java:1": {
 			"installMaven": true
 		},
-		"ghcr.io/devcontainers-contrib/features/ansible:2": {}
+		"ghcr.io/devcontainers-contrib/features/ansible:2": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": true,
+			"azureDnsAutoDetection": true,
+			"installDockerBuildx": true
+		},
+		"ghcr.io/jungaretti/features/make:1": {}
 	},
 	"customizations": {
 		"vscode": {
