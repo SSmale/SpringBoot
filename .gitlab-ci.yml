@@ -12,6 +12,7 @@ stages:
 
 create-and-publish-docker-image:      
   stage: build
+  image: docker:20.10.16
   services:
     - name: docker:20.10.16-dind
       alias: docker
@@ -19,7 +20,7 @@ create-and-publish-docker-image:
     - echo "Loggin into Registry..."
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - echo "Compiling the code, building docker image and publishing..."
-    - mvn package -Dspring-boot.build-image.publish=$publishDockerImage -P dockerise
+    - ./mvnw package -Dspring-boot.build-image.publish=$publishDockerImage -P dockerise
     - echo "Maven Package complete"
   artifacts:
     name: "Learning"
